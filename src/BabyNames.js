@@ -1,6 +1,6 @@
 import React from "react";
 import names from "./BabyNamesData.js";
-import data from "./data.json";
+
 
 function BabyList() {
   let sortedNames = names.sort(function (a, b) {
@@ -15,8 +15,10 @@ function BabyList() {
   return (
     <div className="container-fluid">
       <ul>
-        {sortedNames.map(({ id, name }, key) => (
-          <li>{name}</li>
+        {sortedNames.map(({ name, sex }) => (
+          <li style={{ backgroundColor: sex === "f" ? "#FFC6E5" : "#A0CFEE", color:sex ==="f" ? "red":"blue"}}>
+            {name}
+          </li>
         ))}
       </ul>
     </div>
@@ -24,5 +26,3 @@ function BabyList() {
 }
 
 export default BabyList;
-// if sex ==== "f" :background color:pink
-// else if sex === "m" :background color to blue
