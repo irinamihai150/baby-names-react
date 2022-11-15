@@ -16,7 +16,7 @@ function BabyList() {
     <div className="container-fluid">
       <ul>
         {sortedNames.map(({ name, sex }) => (
-          <li style={{ backgroundColor: sex === "f" ? "#FFC6E5" : "#A0CFEE", color:sex ==="f" ? "red":"blue"}}>
+          <li style={{ backgroundColor: sex === "f" ? "#FFC6E5" : "#A0CFEE", color:sex ==="f" ? "red":"blue" }}>
             {name}
           </li>
         ))}
