@@ -6,6 +6,14 @@ import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 
+
+
+fetch("./data.json")
+  .then((response) => response.json())
+  .then((json) => console.log(json));
+
+
+
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <App />

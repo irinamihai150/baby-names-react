@@ -1,4 +1,4 @@
-.App {
+/* .App {
   text-align: center;
 }
 
@@ -35,4 +35,26 @@
   to {
     transform: rotate(360deg);
   }
+} */
+.container {
+  border-right: 5px solid blue;
+  border-top: 5px solid pink;
+  border-left: 5px solid pink;
+  border-bottom: 5px solid blue;
+  margin-left: 3em;
+  margin-top: 3em;
+}
+
+ul {
+  list-style-type: none;
+  display: flex;
+  flex-wrap: wrap;
+}
+.container-fluid {
+  display:flex;
+  flex-direction: column;
+}
+ul li {
+  justify-content: space-around;
+  margin:0.5em;
 }
