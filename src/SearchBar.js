@@ -7,74 +7,45 @@ const getFilteredItems = (query, items) => {
   }
   return items.filter((el) => el.name.includes(query));
 };
-const searchBar = () => {
+const SearchBar = () => {
   const [query, setQuery] = useState("");
-  let { names } = names;
-  let { items } = names;
-  const filteredItems = getFilteredItems(query, items);
+  names.sort(function (a, b) {
+    names.sort((a, b) => {
+      return a.name - b.name;
+    });
+    if (a.name < b.name) {
+      return -1;
+    }
+    if (a.name > b.name) {
+      return 1;
+    }
+    return 0;
+  });
+
+  const sortedNames = getFilteredItems(query, names);
   return (
-    <div>
-      <label> Search</label>
-      <input type="text" onChange={(e) => setQuery(e.target.value)} />
+    <div className="container-fluid">
+      <input
+        type="text"
+        placeholder="Search for a name"
+        onChange={(e) => setQuery(e.target.value)}
+      />
       <ul>
-        {filteredItems.map((value) => (
-          <li key={value.name}>{value.name}</li>
+        {sortedNames.map(({ name, sex }) => (
+          <li
+            key={name}
+            style={{
+              backgroundColor: sex === "f" ? "#FFC6E5" : "#A0CFEE",
+              color: sex === "f" ? "red" : "blue",
+            }}
+          >
+            {name}
+          </li>
         ))}
       </ul>
     </div>
   );
 };
 
-export default searchBar;
+export default SearchBar;
 
-// let filteredBabies = names.filter((el) => {
-//   return el.name.toLowerCase();
-// });
-// const handleChange = (name) => {
-//   name.preventDefault();
-//   setSearchInput(name.target.value);
-// };
-
-// if (searchInput.length > 0) {
-//   filteredBabies.filter((el) => {
-//     return el.name.match(searchInput);
-//   });
-// return (
-//   <div>
-//     <input
-//       type="text"
-//       placeholder="Search here"
-//       onChange={handleChange}
-//       value={searchInput}
-//     />
-//     <ul>
-//       {filteredBabies.map((baby) => {
-//         <li>{baby.index}</li>;
-//       })}
-//     </ul>
-//   </div>
-// );
-
-// const getFilteredItems = (query, items) => {
-//   if (!query) {
-//     return items;
-//   }
-//   return items.filter((el) => el.name.includes(query));
-// };
-// const searchBar = () => {
-//   const [query, setQuery] = useState("");
-//   let { names } = names;
-//   let { items } = babynames;
-//   const filteredItems = getFilteredItems(query, items);
-//   return (
-//     <div>
-//       <label> Search</label>
-//       <input type="text" onChange={(e) => setQuery(e.target.value)} />
-//       <ul>
-//         {filteredItems.map((value) => (
-//           <li key={value.name}>{value.name}</li>
-//         ))}
-//       </ul>
-//     </div>
-//   );
-// };
