@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import names from "./BabyNamesData.js";
 
 const getFilteredItems = (query, items) => {
@@ -9,10 +9,23 @@ const getFilteredItems = (query, items) => {
 };
 const SearchBar = () => {
   const [query, setQuery] = useState("");
+  const [favorites, setFavorites] = useState("");
+  useEffect(() => {
+    setFavorites(names);
+  }, []);
+  useEffect(() => {
+    console.log(favorites);
+  }, [favorites]);
+
+  // function handleFavorite(id) {
+  //   const newFavorites = favorites.map((item) => {
+  //     return item.id === id ? { ...item, favorite: !item.favorite } : item;
+  //   });
+  //   setFavorites(newFavorites);
+  // }
+
+
   names.sort(function (a, b) {
-    names.sort((a, b) => {
-      return a.name - b.name;
-    });
     if (a.name < b.name) {
       return -1;
     }
@@ -30,6 +43,14 @@ const SearchBar = () => {
         placeholder="Search for a name"
         onChange={(e) => setQuery(e.target.value)}
       />
+      <h1>Favorites List:</h1>
+      {/* <div>
+        <ul>
+          {favorites.map((item) =>
+            item.favorite === true ? <li key={item.id}>{item.name}</li> : null
+          )}
+        </ul>
+      </div> */}
       <ul>
         {sortedNames.map(({ name, sex }) => (
           <li
@@ -48,4 +69,3 @@ const SearchBar = () => {
 };
 
 export default SearchBar;
-

@@ -34,3 +34,24 @@ input {
 label {
   padding-right: 1em;
 }
+#boy {
+  color:blue;
+}
+#girl {
+  color:pink;
+}
+#mix {
+  color:yellow;
+}
+.button-container {
+  display: flex;
+  flex-direction: row;
+justify-content: center;
+}
+input {
+  margin-right: 15px;
+}
+button {
+  margin-right: 15px;
+  margin-top: 15px;
+}
