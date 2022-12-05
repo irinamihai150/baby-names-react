@@ -21,7 +21,7 @@ const SearchBar = () => {
     setFavorites(newFavorites);
   }
 
-  names.sort(function (a, b) {
+  sortedNames.sort(function (a, b) {
     if (a.name < b.name) {
       return -1;
     }
