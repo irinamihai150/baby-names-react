@@ -1,6 +1,6 @@
 import React from "react";
-import names from "./BabyNamesData";
-const Button = ({ gender, setGender }) => {
+
+const Button = ({ setGender }) => {
   const handlegender = (gender) => {
     console.log(gender);
     setGender(gender);
